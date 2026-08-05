@@ -643,6 +643,50 @@
             margin-top: 1.2rem;
         }
 
+        .notice-box {
+            margin-top: 1.5rem;
+            padding: 16px 20px;
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 16px;
+            overflow: hidden;
+            word-break: break-word;
+        }
+
+        .notice-box h4 {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: #b45309;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            word-break: break-word;
+        }
+
+        .notice-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .notice-box li {
+            font-size: 13.5px;
+            color: #78350f;
+            padding: 4px 0;
+            padding-left: 20px;
+            position: relative;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .notice-box li::before {
+            content: "•";
+            position: absolute;
+            left: 6px;
+            color: #f59e0b;
+            font-weight: bold;
+        }
+
         .accordion-item {
             margin-bottom: 10px;
             background: rgba(255, 255, 255, 0.45);
@@ -809,6 +853,7 @@
                 <a href="#about"><i class="fas fa-user"></i>关于我</a>
                 <a href="#blog"><i class="fas fa-pen-fancy"></i>博客</a>
                 <a href="#projects"><i class="fas fa-box-open"></i>作品</a>
+                <a href="#tutorial"><i class="fas fa-book"></i>教程</a>
             </div>
         </nav>
 
@@ -831,6 +876,10 @@
                 <a href="#about" class="btn btn-large btn-plain btn-round">
                     <i class="fas fa-user"></i>
                     关于我
+                </a>
+                <a href="#tutorial" class="btn btn-large btn-plain btn-round">
+                    <i class="fas fa-book"></i>
+                    使用教程
                 </a>
             </div>
         </div>
@@ -1049,6 +1098,195 @@
                 <i class="fas fa-plus-circle"></i> 更多项目正在整理中，欢迎前往
                 <a href="https://github.com/xh2580" target="_blank" style="color: #6366f1; text-decoration: none; font-weight: 600;">GitHub</a>
                 查看。
+            </p>
+        </div>
+
+        <!-- Tutorial Section -->
+        <div id="tutorial" class="section-card">
+            <h2 class="section-title">
+                <i class="fas fa-book"></i>
+                机器人小派蒙使用教程
+            </h2>
+
+            <div class="notice-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> 注意</h4>
+                <ul>
+                    <li>小派蒙不是 AI，特别笨，必须输入正确指令才能识别，不要自己乱试</li>
+                    <li>想了解所有功能指令，优先输入 <b>#菜单/帮助</b> 查看</li>
+                    <li>原神功能指令前加 <b>#</b>，星铁加 <b>*</b>，绝区零加 <b>%</b>，具体以菜单为准</li>
+                </ul>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-item open">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-icon-wrap">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="accordion-title">使用派蒙必学：ck 绑定</span>
+                        <i class="fas fa-chevron-down accordion-arrow"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p><b>使用原神、星铁、绝区零等米游社功能前，需要扫码绑定米游社 ck 信息</b></p>
+                            <ul>
+                                <li>输入 <b>#扫码登录</b> 后快速保存二维码，打开米游社扫码即可，绑定后记得 <b>#刷新ck</b></li>
+                                <li>ck 可能会过期，失效后输入 <b>#刷新ck</b> 或重新扫码</li>
+                                <li>输入 <b>#删除ck</b> 解除米游社绑定</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-icon-wrap">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <span class="accordion-title">米游社游戏签到</span>
+                        <i class="fas fa-chevron-down accordion-arrow"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p><b>进行 ck 绑定后，可以进行原神、星铁、崩坏 3、崩坏 2、未定事件簿、绝区零签到，领取游戏内奖励</b></p>
+                            <ul>
+                                <li>绑定 ck 后，输入 <b>#签到</b> 自动进行原神、星铁、绝区零签到</li>
+                                <li>默认签到原神、星铁、绝区零；崩坏三签到需先输入 <b>#开启崩坏3签到</b>，之后说 <b>#签到</b> 会自动签到崩坏 3</li>
+                                <li>输入 <b>#未定事件簿/崩坏2签到</b> 进行这几个游戏的签到</li>
+                                <li>输入 <b>#mys全部签到</b> 进行米游社所有游戏社区签到，领取米币奖励</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-icon-wrap">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <span class="accordion-title">体力查询</span>
+                        <i class="fas fa-chevron-down accordion-arrow"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>输入 <b>#体力</b> 实时查看原神、星铁体力、派遣、每日委托等情况</li>
+                                <li>输入 <b>#开启/关闭体力推送</b> 控制机器人是否在体力快满时进行艾特推送</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-icon-wrap">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <span class="accordion-title">uid 管理</span>
+                        <i class="fas fa-chevron-down accordion-arrow"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p><b>可以绑定多个 uid</b></p>
+                            <ul>
+                                <li>输入 <b>#uid</b> 查看绑定的所有 uid</li>
+                                <li>输入 <b>#uid</b> + <b>序号</b>，调整 uid</li>
+                                <li>输入 <b>#删除uid</b> + <b>序号</b>，删除不用的 uid；扫码登录绑定的 uid 不可删除</li>
+                                <li>输入 <b>#原神/星铁/绝区零禁用uid100000000</b>，签到和查看体力就不会显示了</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-icon-wrap">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <span class="accordion-title">原神抽卡记录、充值记录查询</span>
+                        <i class="fas fa-chevron-down accordion-arrow"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p><b>派蒙可以自动更新原神抽卡记录，比微信小程序好用</b></p>
+                            <ul>
+                                <li>输入 <b>#记录帮助</b> 查看教学</li>
+                                <li>输入 <b>#更新抽卡记录</b> 更新最近 6 个月抽卡记录（和游戏内一样有 1 小时左右延迟）</li>
+                                <li>输入 <b>#更新小助手抽卡记录</b> 自动同步微信小程序提瓦特小助手的抽卡记录</li>
+                                <li>输入 <b>#全部记录</b> 查看全部卡池记录，输入 <b>#角色/武器/常驻记录</b> 查看单卡池记录</li>
+                                <li>输入 <b>#刷新充值记录</b>，耐心等待几分钟后输入 <b>#充值统计</b> 查看充值记录</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-icon-wrap">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <span class="accordion-title">原神、星铁角色面板、群内排行</span>
+                        <i class="fas fa-chevron-down accordion-arrow"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p><b>派蒙可以计算角色面板和伤害，可以模拟更换命座及武器，还可以看群排行和群友 pvp</b></p>
+                            <ul>
+                                <li>输入 <b>#面板帮助</b> 查看具体指令</li>
+                                <li>输入 <b>#极限胡桃</b> 查看角色极限面板</li>
+                                <li>星铁面板指令请换成 <b>*</b>，如 <b>*希儿面板</b>、<b>*克拉拉排行</b></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-icon-wrap">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <span class="accordion-title">查询出现验证码怎么办：设备绑定</span>
+                        <i class="fas fa-chevron-down accordion-arrow"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p><b>米游社最近频繁跳验证码，绑定设备即可大概率解决</b></p>
+                            <ul>
+                                <li>安卓用户下载设备信息小程序：<a href="https://gitee.com/HanaHimeUnica/copy-device-info/raw/master/%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF.apk" target="_blank" style="color:#6366f1; text-decoration:none; font-weight:600;">下载设备信息 apk</a></li>
+                                <li>下载小程序，复制消息发在群里即可绑定，两种绑定口令有区别，一定要看图</li>
+                                <li>绑定原神、星铁与绝区零请参考对应教学图（图见文档）</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-icon-wrap">
+                            <i class="fas fa-list"></i>
+                        </div>
+                        <span class="accordion-title">其他功能指令菜单</span>
+                        <i class="fas fa-chevron-down accordion-arrow"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>这些功能的指令更复杂，可以看看群友怎么用，有样学样就好了</p>
+                            <ul>
+                                <li>输入 <b>#菜单/帮助</b> 查看功能指令，想了解如何使用请优先参考此菜单</li>
+                                <li>原神功能一般需要在指令前加 <b>#</b></li>
+                                <li>星铁功能一般需要在前面加 <b>*</b></li>
+                                <li>绝区零功能一般需要在前面加 <b>%</b></li>
+                                <li>具体以菜单为准</li>
+                                <li>由于各功能来自于网上不同的作者，某些功能出问题是正常现象，敬请谅解</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p style="color: #64748b; font-size: 13px; margin-top: 0.5rem;">
+                <i class="fas fa-file-alt"></i> 完整图文教程见
+                <a href="docs/机器人小派蒙使用教程.md" style="color: #6366f1; text-decoration: none; font-weight: 600;">文档</a>。
             </p>
         </div>
 
