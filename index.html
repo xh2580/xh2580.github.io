@@ -766,8 +766,8 @@
                 content.style.maxHeight = content.scrollHeight + 'px';
                 content.offsetHeight;
                 content.style.maxHeight = '0px';
+                item.classList.remove('open');
                 content.addEventListener('transitionend', function handler() {
-                    item.classList.remove('open');
                     content.style.maxHeight = '';
                     content.removeEventListener('transitionend', handler);
                 });
@@ -783,6 +783,11 @@
         }
 
         window.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.accordion-item.open').forEach(function(item) {
+                const content = item.querySelector('.accordion-content');
+                const body = item.querySelector('.accordion-body');
+                content.style.maxHeight = (body.scrollHeight + 40) + 'px';
+            });
             if (window.location.hash) {
                 const target = document.querySelector(window.location.hash + '.accordion-item');
                 if (target && !target.classList.contains('open')) {
