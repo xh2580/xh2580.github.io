@@ -2,10 +2,10 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>xh2580 的个人博客与作品集</title>
-    <meta name="description" content="xh2580 的个人博客与作品集，分享技术文章、开源项目与生活思考">
+    <title>机器人崽崽使用教程</title>
+    <meta name="description" content="机器人崽崽使用教程：ck 绑定、米游社签到、体力查询、uid 管理、抽卡记录、角色面板等常用指令详解">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%236366f1'/><text x='50' y='50' text-anchor='middle' dy='.35em' font-size='44' font-weight='bold' fill='white'>xh</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%236366f1'/><text x='50' y='50' text-anchor='middle' dy='.35em' font-size='44' font-weight='bold' fill='white'>崽</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
@@ -136,80 +136,8 @@
         .container {
             position: relative;
             z-index: 2;
-            max-width: 960px;
+            max-width: 860px;
             margin: 0 auto;
-        }
-
-        .nav {
-            position: sticky;
-            top: 12px;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            padding: 10px 20px;
-            margin-bottom: 2rem;
-            background: rgba(255, 255, 255, 0.35);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border-radius: 60px;
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06),
-                        0 0 0 1px rgba(255, 255, 255, 0.4) inset;
-        }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 800;
-            font-size: 15px;
-            color: #2d3748;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        .nav-brand img {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: block;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 7px 14px;
-            border-radius: 40px;
-            font-size: 13.5px;
-            font-weight: 600;
-            color: #4a5568;
-            text-decoration: none;
-            transition: all 0.25s ease;
-            white-space: nowrap;
-        }
-
-        .nav-links a:hover {
-            background: rgba(99, 102, 241, 0.1);
-            color: #6366f1;
-        }
-
-        .nav-links a i {
-            font-size: 13px;
-        }
-
-        @media (max-width: 600px) {
-            .nav { flex-direction: column; border-radius: 24px; }
-            .nav-links { justify-content: center; }
         }
 
         .hero-card {
@@ -242,14 +170,21 @@
             .hero-card { padding: 2rem 1.2rem; border-radius: 28px; }
         }
 
-        .hero-logo {
-            width: 120px;
-            height: 120px;
+        .hero-icon {
+            width: 96px;
+            height: 96px;
             border-radius: 50%;
             margin: 0 auto 1.5rem auto;
-            display: block;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 44px;
+            background: linear-gradient(270deg, #f06292, #ba68c8, #64b5f6, #4fc3f7, #4dd0e1, #81c784, #aed581, #ffb74d, #ff8a65, #e57373, #f06292);
+            background-size: 300% auto;
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
             border: 3px solid rgba(255, 255, 255, 0.8);
+            animation: flowRightToLeft 10s linear infinite;
         }
 
         .hero-title {
@@ -267,16 +202,6 @@
             animation: flowRightToLeft 8s linear infinite;
             -webkit-animation: flowRightToLeft 8s linear infinite;
             filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
-        }
-
-        .hero-title-icon {
-            display: inline-block;
-            -webkit-text-fill-color: #6366f1;
-            background: none;
-            -webkit-background-clip: initial;
-            background-clip: initial;
-            animation: none;
-            margin-right: 6px;
         }
 
         @-webkit-keyframes flowRightToLeft {
@@ -369,27 +294,6 @@
             box-shadow: 0 3px 10px rgba(139, 92, 246, 0.3);
         }
 
-        .btn-plain {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            color: #2d3748;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05), 0 0 0 1px rgba(255,255,255,0.3) inset;
-        }
-
-        .btn-plain:hover {
-            background: rgba(255, 255, 255, 0.5);
-            border-color: rgba(186, 104, 200, 0.5);
-            color: #ba68c8;
-            transform: translateY(-2px) scale(1.04);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.5) inset;
-        }
-
-        .btn-plain:active {
-            transform: translateY(0) scale(0.98);
-        }
-
         .section-card {
             position: relative;
             padding: 2.5rem 2rem;
@@ -432,219 +336,8 @@
             gap: 0.6rem;
         }
 
-        .script-scroll {
-            display: flex;
-            gap: 16px;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            padding: 8px 4px 16px;
-            margin: 0 -4px;
-            scroll-snap-type: x mandatory;
-            scrollbar-width: thin;
-            scrollbar-color: rgba(186, 104, 200, 0.4) transparent;
-        }
-
-        .script-scroll::-webkit-scrollbar {
-            height: 6px;
-        }
-
-        .script-scroll::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .script-scroll::-webkit-scrollbar-thumb {
-            background: rgba(186, 104, 200, 0.3);
-            border-radius: 3px;
-        }
-
-        .script-scroll::-webkit-scrollbar-thumb:hover {
-            background: rgba(186, 104, 200, 0.5);
-        }
-
-        .script-card {
-            flex: 0 0 280px;
-            min-width: 280px;
-            scroll-snap-align: start;
-            background: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06),
-                        0 0 0 1px rgba(255, 255, 255, 0.4) inset;
-            padding: 20px;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1.2);
-            cursor: pointer;
-            overflow: hidden;
-        }
-
-        .script-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1),
-                        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
-        }
-
-        .script-card-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            margin-bottom: 14px;
-            background: linear-gradient(135deg, rgba(240, 98, 146, 0.15), rgba(99, 102, 241, 0.15));
-        }
-
-        .script-card-icon i {
-            background: linear-gradient(135deg, #ba68c8, #6366f1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .script-card-title {
-            font-size: 17px;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .script-card-title a {
-            color: #6366f1;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .script-card-title a:hover {
-            color: #ba68c8;
-        }
-
-        .script-card-arrow {
-            color: #94a3b8;
-            font-size: 13px;
-            transition: transform 0.3s ease, color 0.2s ease;
-        }
-
-        .script-card:hover .script-card-arrow {
-            transform: translateX(4px);
-            color: #6366f1;
-        }
-
-        .script-card-desc {
-            font-size: 13px;
-            color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 14px;
-            min-height: 42px;
-            word-break: break-word;
-            overflow-wrap: break-word;
-        }
-
-        .script-card-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .script-card-tag {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 999px;
-            font-size: 12px;
-            font-weight: 600;
-            color: #6366f1;
-            background: rgba(99, 102, 241, 0.1);
-            word-break: break-word;
-        }
-
-        .script-card-date {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            padding: 4px 12px;
-            border-radius: 999px;
-            font-size: 12px;
-            font-weight: 600;
-            color: #64748b;
-            background: rgba(148, 163, 184, 0.12);
-            white-space: nowrap;
-        }
-
-        .feature-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 12px;
-            margin-top: 1rem;
-        }
-
-        .feature-item {
-            display: flex;
-            gap: 12px;
-            padding: 14px 16px;
-            background: rgba(255, 255, 255, 0.45);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.55);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1.2);
-            overflow: hidden;
-            word-break: break-word;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-2px);
-            background: rgba(255, 255, 255, 0.55);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.1);
-        }
-
-        .feature-icon {
-            font-size: 20px;
-            flex-shrink: 0;
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, rgba(186, 104, 200, 0.2), rgba(99, 102, 241, 0.2));
-            border-radius: 12px;
-            transition: transform 0.3s ease;
-        }
-
-        .feature-icon i {
-            background: linear-gradient(135deg, #ba68c8, #6366f1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .feature-item:hover .feature-icon {
-            transform: scale(1.1);
-        }
-
-        .feature-text h4 {
-            font-size: 14.5px;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 2px;
-            word-break: break-word;
-        }
-
-        .feature-text p {
-            font-size: 13px;
-            color: #718096;
-            line-height: 1.5;
-            word-break: break-word;
-            overflow-wrap: break-word;
-        }
-
-        .accordion {
-            margin-top: 1.2rem;
-        }
-
         .notice-box {
-            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
             padding: 16px 20px;
             background: rgba(251, 191, 36, 0.1);
             border: 1px solid rgba(251, 191, 36, 0.3);
@@ -685,6 +378,10 @@
             left: 6px;
             color: #f59e0b;
             font-weight: bold;
+        }
+
+        .accordion {
+            margin-top: 1.2rem;
         }
 
         .accordion-item {
@@ -766,13 +463,6 @@
             overflow: hidden;
         }
 
-        .accordion-body h4 {
-            font-size: 14.5px;
-            font-weight: 700;
-            color: #2d3748;
-            margin: 12px 0 6px;
-        }
-
         .accordion-body p {
             font-size: 13.5px;
             color: #64748b;
@@ -790,7 +480,7 @@
         .accordion-body li {
             font-size: 13.5px;
             color: #64748b;
-            padding: 4px 0;
+            padding: 6px 0;
             padding-left: 20px;
             position: relative;
             word-break: break-word;
@@ -805,18 +495,22 @@
             font-weight: bold;
         }
 
+        .accordion-body code {
+            background: rgba(99, 102, 241, 0.1);
+            color: #4338ca;
+            padding: 1px 6px;
+            border-radius: 6px;
+            font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+            font-size: 12.5px;
+            word-break: break-all;
+        }
+
         .footer {
             text-align: center;
             color: #94a3b8;
             font-size: 13px;
             margin-top: 2rem;
             padding: 1rem;
-        }
-
-        .footer a {
-            color: #ba68c8;
-            text-decoration: none;
-            font-weight: 600;
         }
 
         .sparkle {
@@ -844,281 +538,51 @@
 
     <div class="container">
 
-        <nav class="nav">
-            <a class="nav-brand" href="#top">
-                <img src="assets/logo.svg" alt="xh2580 头像">
-                xh2580
-            </a>
-            <div class="nav-links">
-                <a href="#about"><i class="fas fa-user"></i>关于我</a>
-                <a href="#blog"><i class="fas fa-pen-fancy"></i>博客</a>
-                <a href="#projects"><i class="fas fa-box-open"></i>作品</a>
-                <a href="#tutorial"><i class="fas fa-book"></i>教程</a>
-            </div>
-        </nav>
-
         <!-- Hero Section -->
-        <div id="top" class="hero-card">
-            <img src="assets/logo.svg" alt="xh2580 Logo" class="hero-logo">
-            <h1 class="hero-title"><span class="hero-title-icon"><i class="fas fa-terminal"></i></span> xh2580 的个人站点</h1>
-            <p class="hero-subtitle">记录技术成长、分享开源项目与生活思考</p>
-            <p class="hero-desc">在这里沉淀知识，也在这里与志同道合的朋友相遇</p>
+        <div class="hero-card">
+            <div class="hero-icon"><i class="fas fa-robot"></i></div>
+            <h1 class="hero-title">机器人崽崽使用教程</h1>
+            <p class="hero-subtitle">最常用功能详解（必看，2min 轻松学会）</p>
+            <p class="hero-desc">以下为群内机器人崽崽的全部常用指令，点击对应分类展开查看</p>
 
             <div class="hero-actions">
-                <a href="#blog" class="btn btn-large btn-primary btn-round">
-                    <i class="fas fa-pen-fancy"></i>
-                    浏览博客
+                <a href="#ck" class="btn btn-large btn-primary btn-round">
+                    <i class="fas fa-star"></i>
+                    开始使用
                 </a>
-                <a href="#projects" class="btn btn-large btn-plain btn-round">
-                    <i class="fas fa-box-open"></i>
-                    浏览作品
-                </a>
-                <a href="#about" class="btn btn-large btn-plain btn-round">
-                    <i class="fas fa-user"></i>
-                    关于我
-                </a>
-                <a href="#tutorial" class="btn btn-large btn-plain btn-round">
-                    <i class="fas fa-book"></i>
-                    使用教程
+                <a href="#menu" class="btn btn-large btn-plain btn-round">
+                    <i class="fas fa-list"></i>
+                    指令菜单
                 </a>
             </div>
         </div>
 
-        <!-- About Section -->
-        <div id="about" class="section-card" style="background: linear-gradient(135deg, rgba(240, 98, 146, 0.08), rgba(99, 102, 241, 0.08), rgba(77, 208, 225, 0.08));">
+        <!-- Notice -->
+        <div class="section-card" style="background: linear-gradient(135deg, rgba(240, 98, 146, 0.08), rgba(99, 102, 241, 0.08), rgba(77, 208, 225, 0.08));">
             <h2 class="section-title">
-                <i class="fas fa-user"></i>
-                关于我
+                <i class="fas fa-exclamation-triangle"></i>
+                使用须知
             </h2>
-            <p style="font-size: 14px; color: #64748b; line-height: 1.7; margin-bottom: 0.5rem; word-break: break-word; overflow-wrap: break-word;">
-                你好，我是 <b style="color:#2d3748;">xh2580</b>，一名热爱折腾的开发者。喜欢用技术解决实际问题，也享受把想法从零做成产品的过程。这个站点是我记录技术博客与展示开源作品的地方。
-            </p>
-
-            <div class="feature-list">
-                <div class="feature-item">
-                    <div class="feature-icon"><i class="fas fa-code"></i></div>
-                    <div class="feature-text">
-                        <h4>技术方向</h4>
-                        <p>Web 前端与后端开发、自动化脚本、开源工具</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
-                    <div class="feature-text">
-                        <h4>爱好</h4>
-                        <p>开源贡献、折腾新工具、记录技术笔记</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon"><i class="fas fa-envelope"></i></div>
-                    <div class="feature-text">
-                        <h4>联系方式</h4>
-                        <p>GitHub：xh2580，欢迎交流与合作</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="script-card-meta" style="margin-top: 1rem; gap: 8px;">
-                <span class="script-card-tag">JavaScript</span>
-                <span class="script-card-tag">TypeScript</span>
-                <span class="script-card-tag">Vue</span>
-                <span class="script-card-tag">Node.js</span>
-                <span class="script-card-tag">Python</span>
-                <span class="script-card-tag">Shell</span>
-            </div>
-        </div>
-
-        <!-- Blog Section -->
-        <div id="blog" class="section-card">
-            <h2 class="section-title">
-                <i class="fas fa-pen-fancy"></i>
-                博客文章
-            </h2>
-
-            <div class="script-scroll">
-                <div class="script-card" onclick="location.href='#post-1'">
-                    <div class="script-card-icon"><i class="fas fa-rocket"></i></div>
-                    <div class="script-card-title">
-                        <a href="#post-1" onclick="event.stopPropagation()">我的第一篇文章</a>
-                        <i class="fas fa-chevron-right script-card-arrow"></i>
-                    </div>
-                    <div class="script-card-desc">关于为什么开始写博客，以及这个站点的由来。</div>
-                    <div class="script-card-meta">
-                        <span class="script-card-date"><i class="far fa-calendar-alt"></i>2026-08-01</span>
-                        <span class="script-card-tag">随笔</span>
-                    </div>
-                </div>
-
-                <div class="script-card" onclick="location.href='#post-2'">
-                    <div class="script-card-icon"><i class="fas fa-tools"></i></div>
-                    <div class="script-card-title">
-                        <a href="#post-2" onclick="event.stopPropagation()">从零搭建个人站点</a>
-                        <i class="fas fa-chevron-right script-card-arrow"></i>
-                    </div>
-                    <div class="script-card-desc">纯静态 HTML/CSS/JS 搭建个人站点，部署到 GitHub Pages 的完整过程。</div>
-                    <div class="script-card-meta">
-                        <span class="script-card-date"><i class="far fa-calendar-alt"></i>2026-08-02</span>
-                        <span class="script-card-tag">前端</span>
-                    </div>
-                </div>
-
-                <div class="script-card" onclick="location.href='#post-3'">
-                    <div class="script-card-icon"><i class="fas fa-lightbulb"></i></div>
-                    <div class="script-card-title">
-                        <a href="#post-3" onclick="event.stopPropagation()">我的开源工具心得</a>
-                        <i class="fas fa-chevron-right script-card-arrow"></i>
-                    </div>
-                    <div class="script-card-desc">做开源的过程中学到的：命名、文档、issue 反馈与版本管理。</div>
-                    <div class="script-card-meta">
-                        <span class="script-card-date"><i class="far fa-calendar-alt"></i>2026-08-03</span>
-                        <span class="script-card-tag">开源</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion">
-                <div id="post-1" class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <div class="accordion-icon-wrap">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <span class="accordion-title">我的第一篇文章</span>
-                        <span class="script-card-date"><i class="far fa-calendar-alt"></i>2026-08-01</span>
-                        <i class="fas fa-chevron-down accordion-arrow"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-body">
-                            <p>欢迎来到我的个人站点。建立这个博客的初衷很简单：把零散的知识整理成体系，把踩过的坑记录下来，也把成长的过程留个见证。</p>
-                            <p>这里会持续更新技术文章、项目笔记和一些日常思考。希望这些内容对你也有帮助。</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="post-2" class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <div class="accordion-icon-wrap">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                        <span class="accordion-title">从零搭建个人站点</span>
-                        <span class="script-card-date"><i class="far fa-calendar-alt"></i>2026-08-02</span>
-                        <i class="fas fa-chevron-down accordion-arrow"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-body">
-                            <p>本站点采用纯静态 HTML/CSS/JS 构建，不使用任何构建工具，内容直接以文件方式维护。</p>
-                            <h4>实现要点</h4>
-                            <ul>
-                                <li>单页结构，包含首页、博客、作品、关于我四个模块</li>
-                                <li>玻璃拟态卡片、浮动光斑背景与流彩渐变标题</li>
-                                <li>通过 Git 提交内容文件，GitHub Pages 自动部署</li>
-                            </ul>
-                            <h4>部署方式</h4>
-                            <ul>
-                                <li>代码推送到仓库 main 分支</li>
-                                <li>GitHub Pages 自动构建并托管</li>
-                                <li>访问地址：https://xh2580.github.io</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="post-3" class="accordion-item">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <div class="accordion-icon-wrap">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <span class="accordion-title">我的开源工具心得</span>
-                        <span class="script-card-date"><i class="far fa-calendar-alt"></i>2026-08-03</span>
-                        <i class="fas fa-chevron-down accordion-arrow"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-body">
-                            <p>参与和维护开源项目的这段时间，我总结了几条实用经验。</p>
-                            <h4>几条心得</h4>
-                            <ul>
-                                <li>清晰的 README 是最好的说明书，第一眼决定留存</li>
-                                <li>命名要具体，避免含糊其辞</li>
-                                <li>认真对待每一个 issue，这是社区信任的来源</li>
-                                <li>版本管理用语义化版本，破坏性变更要提前说明</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Projects Section -->
-        <div id="projects" class="section-card">
-            <h2 class="section-title">
-                <i class="fas fa-box-open"></i>
-                作品展示
-            </h2>
-
-            <div class="script-scroll">
-                <div class="script-card" onclick="window.open('https://github.com/xh2580', '_blank')">
-                    <div class="script-card-icon"><i class="fas fa-file-alt"></i></div>
-                    <div class="script-card-title">
-                        <a href="https://github.com/xh2580" target="_blank" onclick="event.stopPropagation()">个人博客与作品集</a>
-                        <i class="fas fa-external-link-alt script-card-arrow"></i>
-                    </div>
-                    <div class="script-card-desc">你现在看到的这个站点，纯静态单页实现，GitHub Pages 免费托管。</div>
-                    <div class="script-card-meta">
-                        <span class="script-card-tag">HTML/CSS/JS</span>
-                    </div>
-                </div>
-
-                <div class="script-card" onclick="window.open('https://github.com/xh2580', '_blank')">
-                    <div class="script-card-icon"><i class="fas fa-terminal"></i></div>
-                    <div class="script-card-title">
-                        <a href="https://github.com/xh2580" target="_blank" onclick="event.stopPropagation()">自动化脚本工具</a>
-                        <i class="fas fa-external-link-alt script-card-arrow"></i>
-                    </div>
-                    <div class="script-card-desc">日常开发中沉淀的一批自动化脚本，覆盖环境配置、批量处理与效率工具。</div>
-                    <div class="script-card-meta">
-                        <span class="script-card-tag">Shell</span>
-                        <span class="script-card-tag">Python</span>
-                    </div>
-                </div>
-
-                <div class="script-card" onclick="window.open('https://github.com/xh2580', '_blank')">
-                    <div class="script-card-icon"><i class="fas fa-code"></i></div>
-                    <div class="script-card-title">
-                        <a href="https://github.com/xh2580" target="_blank" onclick="event.stopPropagation()">Web 开发实践</a>
-                        <i class="fas fa-external-link-alt script-card-arrow"></i>
-                    </div>
-                    <div class="script-card-desc">前端与后端结合的实践项目，探索工程化与最佳实践。</div>
-                    <div class="script-card-meta">
-                        <span class="script-card-tag">JavaScript</span>
-                        <span class="script-card-tag">Node.js</span>
-                    </div>
-                </div>
-            </div>
-
-            <p style="color: #64748b; font-size: 13px; margin-top: 0.5rem;">
-                <i class="fas fa-plus-circle"></i> 更多项目正在整理中，欢迎前往
-                <a href="https://github.com/xh2580" target="_blank" style="color: #6366f1; text-decoration: none; font-weight: 600;">GitHub</a>
-                查看。
-            </p>
-        </div>
-
-        <!-- Tutorial Section -->
-        <div id="tutorial" class="section-card">
-            <h2 class="section-title">
-                <i class="fas fa-book"></i>
-                机器人崽崽使用教程
-            </h2>
-
             <div class="notice-box">
-                <h4><i class="fas fa-exclamation-triangle"></i> 注意</h4>
+                <h4><i class="fas fa-exclamation-triangle"></i> 重要提示</h4>
                 <ul>
-                    <li>崽崽不是 AI，特别笨，必须输入正确指令才能识别，不要自己乱试</li>
-                    <li>想了解所有功能指令，优先输入 <b>#菜单/帮助</b> 查看</li>
-                    <li>原神功能指令前加 <b>#</b>，星铁加 <b>*</b>，绝区零加 <b>%</b>，具体以菜单为准</li>
+                    <li>崽崽不是 AI，所以特别笨，必须输入正确指令才能识别，宝宝不要自己乱试！</li>
+                    <li>想了解所有功能指令，请优先输入 <code>#菜单/帮助</code> 查看</li>
+                    <li>原神功能指令前加 <code>#</code>，星铁加 <code>*</code>，绝区零加 <code>%</code>，具体以菜单为准</li>
                 </ul>
             </div>
+        </div>
+
+        <!-- Tutorial Sections -->
+        <div class="section-card">
+            <h2 class="section-title">
+                <i class="fas fa-book-open"></i>
+                常用功能详解
+            </h2>
 
             <div class="accordion">
-                <div class="accordion-item open">
+
+                <div id="ck" class="accordion-item open">
                     <div class="accordion-header" onclick="toggleAccordion(this)">
                         <div class="accordion-icon-wrap">
                             <i class="fas fa-star"></i>
@@ -1128,11 +592,11 @@
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body">
-                            <p><b>使用原神、星铁、绝区零等米游社功能前，需要扫码绑定米游社 ck 信息</b></p>
+                            <p>使用原神、星铁、绝区零等米游社功能前，需要扫码绑定米游社 ck 信息。</p>
                             <ul>
-                                <li>输入 <b>#扫码登录</b> 后快速保存二维码，打开米游社扫码即可，绑定后记得 <b>#刷新ck</b></li>
-                                <li>ck 可能会过期，失效后输入 <b>#刷新ck</b> 或重新扫码</li>
-                                <li>输入 <b>#删除ck</b> 解除米游社绑定</li>
+                                <li>输入 <code>#扫码登录</code> 后快速保存二维码，打开米游社扫码即可，绑定后记得 <code>#刷新ck</code></li>
+                                <li>ck 可能会过期，失效后输入 <code>#刷新ck</code> 或重新扫码</li>
+                                <li>输入 <code>#删除ck</code> 解除米游社绑定</li>
                             </ul>
                         </div>
                     </div>
@@ -1148,12 +612,12 @@
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body">
-                            <p><b>进行 ck 绑定后，可以进行原神、星铁、崩坏 3、崩坏 2、未定事件簿、绝区零签到，领取游戏内奖励</b></p>
+                            <p>进行 ck 绑定后，可以进行原神、星铁、崩坏 3、崩坏 2、未定事件簿、绝区零签到，领取游戏内奖励。</p>
                             <ul>
-                                <li>绑定 ck 后，输入 <b>#签到</b> 自动进行原神、星铁、绝区零签到</li>
-                                <li>默认签到原神、星铁、绝区零；崩坏三签到需先输入 <b>#开启崩坏3签到</b>，之后说 <b>#签到</b> 会自动签到崩坏 3</li>
-                                <li>输入 <b>#未定事件簿/崩坏2签到</b> 进行这几个游戏的签到</li>
-                                <li>输入 <b>#mys全部签到</b> 进行米游社所有游戏社区签到，领取米币奖励</li>
+                                <li>绑定 ck 后，输入 <code>#签到</code> 自动进行原神、星铁、崩坏 3、绝区零签到</li>
+                                <li>默认签到原神、星铁、绝区零；崩坏三签到需先在群里输入 <code>#开启崩坏3签到</code>，之后说 <code>#签到</code> 会自动签到崩坏 3</li>
+                                <li>输入 <code>#未定事件簿/崩坏2签到</code> 进行这几个游戏的签到</li>
+                                <li>输入 <code>#mys全部签到</code> 进行米游社所有游戏社区签到，领取米币奖励</li>
                             </ul>
                         </div>
                     </div>
@@ -1170,8 +634,8 @@
                     <div class="accordion-content">
                         <div class="accordion-body">
                             <ul>
-                                <li>输入 <b>#体力</b> 实时查看原神、星铁体力、派遣、每日委托等情况</li>
-                                <li>输入 <b>#开启/关闭体力推送</b> 控制机器人是否在体力快满时进行艾特推送</li>
+                                <li>输入 <code>#体力</code> 实时查看原神、星铁体力、派遣、每日委托等情况</li>
+                                <li>输入 <code>#开启/关闭体力推送</code> 控制机器人是否在体力快满时进行艾特推送</li>
                             </ul>
                         </div>
                     </div>
@@ -1187,12 +651,12 @@
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body">
-                            <p><b>可以绑定多个 uid</b></p>
+                            <p>可以绑定多个 uid。</p>
                             <ul>
-                                <li>输入 <b>#uid</b> 查看绑定的所有 uid</li>
-                                <li>输入 <b>#uid</b> + <b>序号</b>，调整 uid</li>
-                                <li>输入 <b>#删除uid</b> + <b>序号</b>，删除不用的 uid；扫码登录绑定的 uid 不可删除</li>
-                                <li>输入 <b>#原神/星铁/绝区零禁用uid100000000</b>，签到和查看体力就不会显示了</li>
+                                <li>输入 <code>#uid</code> 查看绑定的所有 uid</li>
+                                <li>输入 <code>#uid</code> + <code>序号</code>，调整 uid</li>
+                                <li>输入 <code>#删除uid</code> + <code>序号</code>，删除不用的 uid；扫码登录绑定的 uid 不可删除</li>
+                                <li>输入 <code>#原神/星铁/绝区零禁用uid100000000</code>，签到和查看体力就不会显示了</li>
                             </ul>
                         </div>
                     </div>
@@ -1208,13 +672,13 @@
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body">
-                            <p><b>崽崽可以自动更新原神抽卡记录，比微信小程序好用</b></p>
+                            <p>崽崽可以自动更新原神抽卡记录，比微信小程序好用！</p>
                             <ul>
-                                <li>输入 <b>#记录帮助</b> 查看教学</li>
-                                <li>输入 <b>#更新抽卡记录</b> 更新最近 6 个月抽卡记录（和游戏内一样有 1 小时左右延迟）</li>
-                                <li>输入 <b>#更新小助手抽卡记录</b> 自动同步微信小程序提瓦特小助手的抽卡记录</li>
-                                <li>输入 <b>#全部记录</b> 查看全部卡池记录，输入 <b>#角色/武器/常驻记录</b> 查看单卡池记录</li>
-                                <li>输入 <b>#刷新充值记录</b>，耐心等待几分钟后输入 <b>#充值统计</b> 查看充值记录</li>
+                                <li>输入 <code>#记录帮助</code> 查看教学</li>
+                                <li>输入 <code>#更新抽卡记录</code> 即可更新最近 6 个月抽卡记录（和游戏内一样有 1 小时左右延迟）</li>
+                                <li>输入 <code>#更新小助手抽卡记录</code> 即可自动同步微信小程序提瓦特小助手的抽卡记录，方便快捷</li>
+                                <li>输入 <code>#全部记录</code> 查看全部卡池记录，输入 <code>#角色/武器/常驻记录</code> 查看单卡池记录</li>
+                                <li>输入 <code>#刷新充值记录</code>，耐心等待几分钟后输入 <code>#充值统计</code> 查看自己的充值记录</li>
                             </ul>
                         </div>
                     </div>
@@ -1230,11 +694,11 @@
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body">
-                            <p><b>崽崽可以计算角色面板和伤害，可以模拟更换命座及武器，还可以看群排行和群友 pvp</b></p>
+                            <p>其实看群友怎么用也就懂了，崽崽可以计算角色面板和伤害，可以模拟更换命座及武器，还可以看群排行和群友 pvp。</p>
                             <ul>
-                                <li>输入 <b>#面板帮助</b> 查看具体指令</li>
-                                <li>输入 <b>#极限胡桃</b> 查看角色极限面板</li>
-                                <li>星铁面板指令请换成 <b>*</b>，如 <b>*希儿面板</b>、<b>*克拉拉排行</b></li>
+                                <li>输入 <code>#面板帮助</code> 查看具体指令</li>
+                                <li>输入 <code>#极限胡桃</code> 查看角色极限面板</li>
+                                <li>星铁面板指令请换成 <code>*</code>，如 <code>*希儿面板</code>、<code>*克拉拉排行</code></li>
                             </ul>
                         </div>
                     </div>
@@ -1250,17 +714,18 @@
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body">
-                            <p><b>米游社最近频繁跳验证码，绑定设备即可大概率解决</b></p>
+                            <p>米游社最近频繁跳验证码，绑定设备即可大概率解决。</p>
                             <ul>
-                                <li>安卓用户下载设备信息小程序：<a href="https://gitee.com/HanaHimeUnica/copy-device-info/raw/master/%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF.apk" target="_blank" style="color:#6366f1; text-decoration:none; font-weight:600;">下载设备信息 apk</a></li>
-                                <li>下载小程序，复制消息发在群里即可绑定，两种绑定口令有区别，一定要看图</li>
-                                <li>绑定原神、星铁与绝区零请参考对应教学图（图见文档）</li>
+                                <li>安卓用户点击链接下载设备信息小程序：<a href="https://gitee.com/HanaHimeUnica/copy-device-info/raw/master/%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF.apk" target="_blank" style="color:#6366f1; text-decoration:none; font-weight:600;">下载设备信息 apk</a></li>
+                                <li>下载小程序，复制消息发在群里即可绑定，两种绑定口令有区别，一定要看教学图</li>
+                                <li>绑定原神、星铁教学图（图片占位）</li>
+                                <li>绑定绝区零教学图（图片占位）</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <div class="accordion-item">
+                <div id="menu" class="accordion-item">
                     <div class="accordion-header" onclick="toggleAccordion(this)">
                         <div class="accordion-icon-wrap">
                             <i class="fas fa-list"></i>
@@ -1270,29 +735,24 @@
                     </div>
                     <div class="accordion-content">
                         <div class="accordion-body">
-                            <p>这些功能的指令更复杂，可以看看群友怎么用，有样学样就好了</p>
+                            <p>这些功能的指令更复杂，可以看看群友怎么用，有样学样就好了。</p>
                             <ul>
-                                <li>输入 <b>#菜单/帮助</b> 查看功能指令，想了解如何使用请优先参考此菜单</li>
-                                <li>原神功能一般需要在指令前加 <b>#</b></li>
-                                <li>星铁功能一般需要在前面加 <b>*</b></li>
-                                <li>绝区零功能一般需要在前面加 <b>%</b></li>
+                                <li>输入 <code>#菜单/帮助</code> 查看功能指令，想了解如何使用请优先参考此菜单</li>
+                                <li>原神功能一般需要在指令前加 <code>#</code></li>
+                                <li>星铁功能一般需要在前面加 <code>*</code></li>
+                                <li>绝区零功能一般需要在前面加 <code>%</code></li>
                                 <li>具体以菜单为准</li>
                                 <li>由于各功能来自于网上不同的作者，某些功能出问题是正常现象，敬请谅解</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <p style="color: #64748b; font-size: 13px; margin-top: 0.5rem;">
-                <i class="fas fa-file-alt"></i> 完整图文教程见
-                <a href="docs/机器人崽崽使用教程.md" style="color: #6366f1; text-decoration: none; font-weight: 600;">文档</a>。
-            </p>
+            </div>
         </div>
 
         <div class="footer">
-            Made with <i class="fas fa-fire" style="color: #f97316;"></i> and <i class="fas fa-heart" style="color: #ec4899;"></i> by
-            <a href="https://github.com/xh2580" target="_blank">xh2580</a>
+            Made with <i class="fas fa-fire" style="color: #f97316;"></i> and <i class="fas fa-heart" style="color: #ec4899;"></i> by <b>崽崽机器人</b>
         </div>
     </div>
 
