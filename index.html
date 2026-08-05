@@ -505,6 +505,40 @@
             word-break: break-all;
         }
 
+        .example-box {
+            margin-top: 12px;
+            padding: 12px 16px;
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            word-break: break-word;
+        }
+
+        .example-box .example-label {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: #4338ca;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .example-box .example-row {
+            font-size: 13px;
+            color: #334155;
+            padding: 4px 0;
+            line-height: 1.7;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .example-box .example-row .arrow {
+            color: #94a3b8;
+            margin: 0 4px;
+        }
+
         .footer {
             text-align: center;
             color: #94a3b8;
@@ -582,7 +616,7 @@
 
             <div class="accordion">
 
-                <div id="ck" class="accordion-item open">
+                <div id="ck" class="accordion-item">
                     <div class="accordion-header" onclick="toggleAccordion(this)">
                         <div class="accordion-icon-wrap">
                             <i class="fas fa-star"></i>
@@ -598,6 +632,12 @@
                                 <li>❤️ ck 可能会过期，失效后输入 <code>#刷新ck</code> 或重新扫码</li>
                                 <li>❤️ 输入 <code>#删除ck</code> 解除米游社绑定</li>
                             </ul>
+                            <div class="example-box">
+                                <div class="example-label"><i class="fas fa-lightbulb"></i> 使用示例</div>
+                                <div class="example-row">第一次绑定：<code>#扫码登录</code> <span class="arrow">→</span> 保存二维码 <span class="arrow">→</span> 米游社扫码 <span class="arrow">→</span> 完成后再发 <code>#刷新ck</code></div>
+                                <div class="example-row">ck 过期了：直接发 <code>#刷新ck</code>，或重新 <code>#扫码登录</code></div>
+                                <div class="example-row">要解绑：发 <code>#删除ck</code></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -619,6 +659,13 @@
                                 <li>❤️ 输入 <code>#未定事件簿/崩坏2签到</code> 进行这几个游戏的签到</li>
                                 <li>❤️ 输入 <code>#mys全部签到</code> 进行米游社所有游戏社区签到，领取米币奖励</li>
                             </ul>
+                            <div class="example-box">
+                                <div class="example-label"><i class="fas fa-lightbulb"></i> 使用示例</div>
+                                <div class="example-row">日常签到：<code>#签到</code>（默认自动签原神、星铁、绝区零）</div>
+                                <div class="example-row">开崩坏三：先发 <code>#开启崩坏3签到</code>，之后 <code>#签到</code> 就会带上崩坏 3</div>
+                                <div class="example-row">其他游戏：<code>#未定事件簿/崩坏2签到</code></div>
+                                <div class="example-row">社区全签：<code>#mys全部签到</code>（还能领米币）</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -637,6 +684,12 @@
                                 <li>❤️ 输入 <code>#体力</code> 实时查看原神、星铁体力、派遣、每日委托等情况</li>
                                 <li>❤️ 输入 <code>#开启/关闭体力推送</code> 控制机器人是否在体力快满时进行艾特推送</li>
                             </ul>
+                            <div class="example-box">
+                                <div class="example-label"><i class="fas fa-lightbulb"></i> 使用示例</div>
+                                <div class="example-row">随时查体力：<code>#体力</code></div>
+                                <div class="example-row">想被提醒：<code>#开启体力推送</code></div>
+                                <div class="example-row">嫌吵就关：<code>#关闭体力推送</code></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -658,6 +711,13 @@
                                 <li>❤️ 输入 <code>#删除uid</code> + <code>序号</code>，删除不用的 uid；扫码登录绑定的 uid 不可删除</li>
                                 <li>❤️ 输入 <code>#原神/星铁/绝区零禁用uid100000000</code>，签到和查看体力就不会显示了</li>
                             </ul>
+                            <div class="example-box">
+                                <div class="example-label"><i class="fas fa-lightbulb"></i> 使用示例</div>
+                                <div class="example-row">查看全部：<code>#uid</code></div>
+                                <div class="example-row">切换到第 1 个：<code>#uid 1</code></div>
+                                <div class="example-row">删掉第 2 个：<code>#删除uid 2</code></div>
+                                <div class="example-row">让某个 uid 不显示：<code>#原神禁用uid100000000</code></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -680,6 +740,13 @@
                                 <li>❤️ 输入 <code>#全部记录</code> 查看全部卡池记录，输入 <code>#角色/武器/常驻记录</code> 查看单卡池记录</li>
                                 <li>❤️ 输入 <code>#刷新充值记录</code>，耐心等待几分钟后输入 <code>#充值统计</code> 查看自己的充值记录</li>
                             </ul>
+                            <div class="example-box">
+                                <div class="example-label"><i class="fas fa-lightbulb"></i> 使用示例</div>
+                                <div class="example-row">先看教学：<code>#记录帮助</code></div>
+                                <div class="example-row">更新抽卡：<code>#更新抽卡记录</code>（同步微信小程序就用 <code>#更新小助手抽卡记录</code>）</div>
+                                <div class="example-row">看全部卡池：<code>#全部记录</code>；只看单池：<code>#角色记录</code> / <code>#武器记录</code> / <code>#常驻记录</code></div>
+                                <div class="example-row">查充值：先 <code>#刷新充值记录</code>，等几分钟再 <code>#充值统计</code></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -700,6 +767,13 @@
                                 <li>❤️ 输入 <code>#极限胡桃</code> 查看角色极限面板</li>
                                 <li>❤️ 星铁面板指令请换成 <code>*</code>，如 <code>*希儿面板</code>、<code>*克拉拉排行</code></li>
                             </ul>
+                            <div class="example-box">
+                                <div class="example-label"><i class="fas fa-lightbulb"></i> 使用示例</div>
+                                <div class="example-row">原神面板：<code>#极限胡桃</code>（换成自己想看的角色名字即可）</div>
+                                <div class="example-row">原神排行：<code>#胡桃排行</code></div>
+                                <div class="example-row">星铁面板：<code>*希儿面板</code>；星铁排行：<code>*克拉拉排行</code></div>
+                                <div class="example-row">更多指令：<code>#面板帮助</code></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -721,6 +795,12 @@
                                 <li>❤️ 绑定原神、星铁教学图（图片占位）</li>
                                 <li>❤️ 绑定绝区零教学图（图片占位）</li>
                             </ul>
+                            <div class="example-box">
+                                <div class="example-label"><i class="fas fa-lightbulb"></i> 使用示例</div>
+                                <div class="example-row">先下载设备信息小程序：<a href="https://gitee.com/HanaHimeUnica/copy-device-info/raw/master/%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF.apk" target="_blank" style="color:#6366f1; text-decoration:none; font-weight:600;">点此下载 apk</a></div>
+                                <div class="example-row">运行小程序复制设备消息，发到群里即可绑定</div>
+                                <div class="example-row">注意：原神、星铁与绝区零的绑定口令不同，务必看对应教学图</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -744,6 +824,13 @@
                                 <li>❤️ 具体以菜单为准</li>
                                 <li>❤️ 由于各功能来自于网上不同的作者，某些功能出问题是正常现象，敬请谅解</li>
                             </ul>
+                            <div class="example-box">
+                                <div class="example-label"><i class="fas fa-lightbulb"></i> 使用示例</div>
+                                <div class="example-row">查看完整指令表：<code>#菜单</code> 或 <code>#帮助</code></div>
+                                <div class="example-row">原神功能：指令前加 <code>#</code>，如 <code>#签到</code>、<code>#体力</code></div>
+                                <div class="example-row">星铁功能：指令前加 <code>*</code>，如 <code>*签到</code>、<code>*体力</code></div>
+                                <div class="example-row">绝区零功能：指令前加 <code>%</code>，如 <code>%签到</code>、<code>%体力</code></div>
+                            </div>
                         </div>
                     </div>
                 </div>
