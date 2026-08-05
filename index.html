@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>xh2580 的个人博客与作品集</title>
+    <meta name="description" content="xh2580 的个人博客与作品集，分享技术文章、开源项目与生活思考">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%236366f1'/><text x='50' y='50' text-anchor='middle' dy='.35em' font-size='44' font-weight='bold' fill='white'>xh</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        var _topTimer = setInterval(function() {
+            if (!window.location.hash) window.scrollTo(0, 0);
+        }, 50);
+        var _clearTop = function() {
+            if (!window.location.hash) window.scrollTo(0, 0);
+            setTimeout(function() { clearInterval(_topTimer); }, 800);
+        };
+        document.addEventListener('DOMContentLoaded', _clearTop);
+        window.addEventListener('load', _clearTop);
+        window.addEventListener('pageshow', _clearTop);
+        setTimeout(_clearTop, 500);
+    </script>
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            min-height: 100vh;
+            color: #1e293b;
+            background: linear-gradient(135deg, #f0f4ff 0%, #f5f3ff 25%, #fef9e7 50%, #fce4ec 75%, #e8f5e9 100%);
+            overflow-x: hidden;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 1rem 0.75rem; }
+        }
+
+        .page-bg {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle at 30% 40%, rgba(240, 98, 146, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 60%, rgba(100, 181, 246, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 80%, rgba(129, 199, 132, 0.06) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 183, 77, 0.06) 0%, transparent 50%);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+            filter: blur(45px);
+        }
+
+        .floating-blobs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.18;
+            animation: floatBlob 25s ease-in-out infinite;
+        }
+
+        .blob-1 {
+            width: 260px;
+            height: 260px;
+            background: linear-gradient(135deg, #f06292, #ec4899);
+            top: -80px;
+            left: -60px;
+            animation-delay: 0s;
+        }
+
+        .blob-2 {
+            width: 220px;
+            height: 220px;
+            background: linear-gradient(135deg, #64b5f6, #6366f1);
+            top: 50%;
+            right: -70px;
+            animation-delay: -7s;
+        }
+
+        .blob-3 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #81c784, #4dd0e1);
+            bottom: -60px;
+            left: 30%;
+            animation-delay: -14s;
+        }
+
+        .blob-4 {
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #ffb74d, #ff8a65);
+            top: 20%;
+            right: 30%;
+            animation-delay: -20s;
+        }
+
+        @keyframes floatBlob {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(20px, -30px) scale(1.06); }
+            50% { transform: translate(-15px, 25px) scale(0.96); }
+            75% { transform: translate(25px, 15px) scale(1.03); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .nav {
+            position: sticky;
+            top: 12px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 10px 20px;
+            margin-bottom: 2rem;
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-radius: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06),
+                        0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 15px;
+            color: #2d3748;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .nav-brand img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 14px;
+            border-radius: 40px;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #4a5568;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: #6366f1;
+        }
+
+        .nav-links a i {
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            .nav { flex-direction: column; border-radius: 24px; }
+            .nav-links { justify-content: center; }
+        }
+
+        .hero-card {
+            position: relative;
+            padding: 3rem 2rem;
+            text-align: center;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(45px);
+            -webkit-backdrop-filter: blur(45px);
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08),
+                        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+            margin-bottom: 2rem;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .hero-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 56px rgba(0, 0, 0, 0.12),
+                        0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+        }
+
+        @media (max-width: 768px) {
+            .hero-card { padding: 2.5rem 1.5rem; border-radius: 32px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-card { padding: 2rem 1.2rem; border-radius: 28px; }
+        }
+
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem auto;
+            display: block;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            border: 3px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-title {
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: linear-gradient(270deg, #f06292, #ba68c8, #64b5f6, #4fc3f7, #4dd0e1, #81c784, #aed581, #ffb74d, #ff8a65, #e57373, #f06292) !important;
+            background-size: 300% auto !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+            color: transparent !important;
+            animation: flowRightToLeft 8s linear infinite;
+            -webkit-animation: flowRightToLeft 8s linear infinite;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+        }
+
+        .hero-title-icon {
+            display: inline-block;
+            -webkit-text-fill-color: #6366f1;
+            background: none;
+            -webkit-background-clip: initial;
+            background-clip: initial;
+            animation: none;
+            margin-right: 6px;
+        }
+
+        @-webkit-keyframes flowRightToLeft {
+            0% { background-position: 0% center; }
+            100% { background-position: -300% center; }
+        }
+
+        @keyframes flowRightToLeft {
+            0% { background-position: 0% center; }
+            100% { background-position: -300% center; }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(15px, 3vw, 18px);
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .hero-desc {
+            font-size: clamp(13px, 2.5vw, 15px);
+            color: #718096;
+            margin-bottom: 2rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+            border: 2px solid transparent;
+            font-family: inherit;
+            font-size: 1rem;
+            line-height: 1.5;
+            white-space: nowrap;
+            outline: none;
+            font-weight: 700;
+            -webkit-tap-highlight-color: transparent;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn:focus-visible {
+            outline: 3px solid rgba(186, 104, 200, 0.6);
+            outline-offset: 3px;
+        }
+
+        .btn-large {
+            padding: 0.9rem 2.2rem;
+            font-size: 1.05rem;
+            letter-spacing: 0.3px;
+        }
+
+        @media (max-width: 480px) {
+            .btn-large { padding: 0.8rem 1.6rem; font-size: 0.95rem; }
+        }
+
+        .btn-round {
+            border-radius: 60px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(270deg, #f06292, #ba68c8, #64b5f6, #4fc3f7, #4dd0e1, #81c784, #aed581, #ffb74d, #ff8a65, #e57373, #f06292);
+            background-size: 300% auto;
+            color: #ffffff;
+            border: none;
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.3);
+            animation: flowRightToLeft 10s linear infinite;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 14px 32px rgba(139, 92, 246, 0.45);
+            animation-play-state: paused;
+        }
+
+        .btn-primary:active {
+            transform: translateY(0) scale(0.98);
+            box-shadow: 0 3px 10px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-plain {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            color: #2d3748;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05), 0 0 0 1px rgba(255,255,255,0.3) inset;
+        }
+
+        .btn-plain:hover {
+            background: rgba(255, 255, 255, 0.5);
+            border-color: rgba(186, 104, 200, 0.5);
+            color: #ba68c8;
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1), 0 0 0 1px rgba(255,255,255,0.5) inset;
+        }
+
+        .btn-plain:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .section-card {
+            position: relative;
+            padding: 2.5rem 2rem;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(45px);
+            -webkit-backdrop-filter: blur(45px);
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08),
+                        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+            margin-bottom: 2rem;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            overflow: hidden;
+        }
+
+        .section-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 52px rgba(0, 0, 0, 0.1),
+                        0 0 0 1px rgba(255, 255, 255, 0.55) inset;
+        }
+
+        @media (max-width: 768px) {
+            .section-card { padding: 2rem 1.5rem; border-radius: 28px; }
+        }
+
+        @media (max-width: 480px) {
+            .section-card { padding: 1.5rem 1.2rem; border-radius: 24px; }
+        }
+
+        .section-title {
+            font-size: clamp(20px, 4vw, 28px);
+            font-weight: 700;
+            background: linear-gradient(135deg, #2c3e50, #ba68c8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .script-scroll {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding: 8px 4px 16px;
+            margin: 0 -4px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(186, 104, 200, 0.4) transparent;
+        }
+
+        .script-scroll::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .script-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .script-scroll::-webkit-scrollbar-thumb {
+            background: rgba(186, 104, 200, 0.3);
+            border-radius: 3px;
+        }
+
+        .script-scroll::-webkit-scrollbar-thumb:hover {
+            background: rgba(186, 104, 200, 0.5);
+        }
+
+        .script-card {
+            flex: 0 0 280px;
+            min-width: 280px;
+            scroll-snap-align: start;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06),
+                        0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+            padding: 20px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .script-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1),
+                        0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+        }
+
+        .script-card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 14px;
+            background: linear-gradient(135deg, rgba(240, 98, 146, 0.15), rgba(99, 102, 241, 0.15));
+        }
+
+        .script-card-icon i {
+            background: linear-gradient(135deg, #ba68c8, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .script-card-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .script-card-title a {
+            color: #6366f1;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .script-card-title a:hover {
+            color: #ba68c8;
+        }
+
+        .script-card-arrow {
+            color: #94a3b8;
+            font-size: 13px;
+            transition: transform 0.3s ease, color 0.2s ease;
+        }
+
+        .script-card:hover .script-card-arrow {
+            transform: translateX(4px);
+            color: #6366f1;
+        }
+
+        .script-card-desc {
+            font-size: 13px;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 14px;
+            min-height: 42px;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .script-card-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .script-card-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #6366f1;
+            background: rgba(99, 102, 241, 0.1);
+            word-break: break-word;
+        }
+
+        .script-card-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #64748b;
+            background: rgba(148, 163, 184, 0.12);
+            white-space: nowrap;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 12px;
+            margin-top: 1rem;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 12px;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.45);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1.2);
+            overflow: hidden;
+            word-break: break-word;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.55);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(186, 104, 200, 0.2), rgba(99, 102, 241, 0.2));
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-icon i {
+            background: linear-gradient(135deg, #ba68c8, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .feature-item:hover .feature-icon {
+            transform: scale(1.1);
+        }
+
+        .feature-text h4 {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 2px;
+            word-break: break-word;
+        }
+
+        .feature-text p {
+            font-size: 13px;
+            color: #718096;
+            line-height: 1.5;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .accordion {
+            margin-top: 1.2rem;
+        }
+
+        .accordion-item {
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            overflow: hidden;
+            transition: background 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            background: rgba(255, 255, 255, 0.55);
+        }
+
+        .accordion-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 20px;
+            cursor: pointer;
+            user-select: none;
+            font-size: 16px;
+            font-weight: 700;
+            color: #2d3748;
+            transition: all 0.2s ease;
+            overflow: hidden;
+        }
+
+        .accordion-header:hover {
+            color: #6366f1;
+        }
+
+        .accordion-icon-wrap {
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(186, 104, 200, 0.18), rgba(99, 102, 241, 0.18));
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+
+        .accordion-icon-wrap i {
+            font-size: 15px;
+            background: linear-gradient(135deg, #ba68c8, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .accordion-title {
+            flex: 1;
+            word-break: break-word;
+        }
+
+        .accordion-arrow {
+            font-size: 14px;
+            color: #94a3b8;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.open .accordion-arrow {
+            transform: rotate(180deg);
+            color: #6366f1;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .accordion-body {
+            padding: 0 20px 20px;
+            overflow: hidden;
+        }
+
+        .accordion-body h4 {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: #2d3748;
+            margin: 12px 0 6px;
+        }
+
+        .accordion-body p {
+            font-size: 13.5px;
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 8px;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .accordion-body ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .accordion-body li {
+            font-size: 13.5px;
+            color: #64748b;
+            padding: 4px 0;
+            padding-left: 20px;
+            position: relative;
+            word-break: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .accordion-body li::before {
+            content: "•";
+            position: absolute;
+            left: 6px;
+            color: #6366f1;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 13px;
+            margin-top: 2rem;
+            padding: 1rem;
+        }
+
+        .footer a {
+            color: #ba68c8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            animation: sparkleBurst 0.9s ease-out forwards;
+        }
+
+        @keyframes sparkleBurst {
+            0% { transform: translate(0, 0) scale(0) rotate(0deg); opacity: 0; }
+            20% { opacity: 1; }
+            100% { transform: translate(var(--dx), var(--dy)) scale(1.2) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-bg"></div>
+    <div class="floating-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+    </div>
+
+    <div class="container">
+
+        <nav class="nav">
+            <a class="nav-brand" href="#top">
+                <img src="assets/logo.svg" alt="xh2580 头像">
+                xh2580
+            </a>
+            <div class="nav-links">
+                <a href="#about"><i class="fas fa-user"></i>关于我</a>
+                <a href="#blog"><i class="fas fa-pen-fancy"></i>博客</a>
+                <a href="#projects"><i class="fas fa-box-open"></i>作品</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <div id="top" class="hero-card">
+            <img src="assets/logo.svg" alt="xh2580 Logo" class="hero-logo">
+            <h1 class="hero-title"><span class="hero-title-icon"><i class="fas fa-terminal"></i></span> xh2580 的个人站点</h1>
+            <p class="hero-subtitle">记录技术成长、分享开源项目与生活思考</p>
+            <p class="hero-desc">在这里沉淀知识，也在这里与志同道合的朋友相遇</p>
+
+            <div class="hero-actions">
+                <a href="#blog" class="btn btn-large btn-primary btn-round">
+                    <i class="fas fa-pen-fancy"></i>
+                    浏览博客
+                </a>
+                <a href="#projects" class="btn btn-large btn-plain btn-round">
+                    <i class="fas fa-box-open"></i>
+                    浏览作品
+                </a>
+                <a href="#about" class="btn btn-large btn-plain btn-round">
+                    <i class="fas fa-user"></i>
+                    关于我
+                </a>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div id="about" class="section-card" style="background: linear-gradient(135deg, rgba(240, 98, 146, 0.08), rgba(99, 102, 241, 0.08), rgba(77, 208, 225, 0.08));">
+            <h2 class="section-title">
+                <i class="fas fa-user"></i>
+                关于我
+            </h2>
+            <p style="font-size: 14px; color: #64748b; line-height: 1.7; margin-bottom: 0.5rem; word-break: break-word; overflow-wrap: break-word;">
+                你好，我是 <b style="color:#2d3748;">xh2580</b>，一名热爱折腾的开发者。喜欢用技术解决实际问题，也享受把想法从零做成产品的过程。这个站点是我记录技术博客与展示开源作品的地方。
+            </p>
+
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-code"></i></div>
+                    <div class="feature-text">
+                        <h4>技术方向</h4>
+                        <p>Web 前端与后端开发、自动化脚本、开源工具</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div class="feature-text">
+                        <h4>爱好</h4>
+                        <p>开源贡献、折腾新工具、记录技术笔记</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="feature-text">
+                        <h4>联系方式</h4>
+                        <p>GitHub：xh2580，欢迎交流与合作</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="script-card-meta" style="margin-top: 1rem; gap: 8px;">
+                <span class="script-card-tag">JavaScript</span>
+                <span class="script-card-tag">TypeScript</span>
+                <span class="script-card-tag">Vue</span>
+                <span class="script-card-tag">Node.js</span>
+                <span class="script-card-tag">Python</span>
+                <span class="script-card-tag">Shell</span>
+            </div>
+        </div>
+
+        <!-- Blog Section -->
+        <div id="blog" class="section-card">
+            <h2 class="section-title">
+                <i class="fas fa-pen-fancy"></i>
+                博客文章
+            </h2>
+
+            <div class="script-scroll">
+                <div class="script-card" onclick="location.href='#post-1'">
+                    <div class="script-card-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="script-card-title">
+                        <a href="#post-1" onclick="event.stopPropagation()">我的第一篇文章</a>
+                        <i class="fas fa-chevron-right script-card-arrow"></i>
+                    </div>
+                    <div class="script-card-desc">关于为什么开始写博客，以及这个站点的由来。</div>
+                    <div class="script-card-meta">
+                        <span class="script-card-date"><i class="far fa-calendar-alt"></i>2026-08-01</span>
+                        <span class="script-card-tag">随笔</span>
+                    </div>
+                </div>
+
+                <div class="script-card" onclick="location.href='#post-2'">
+                    <div class="script-card-icon"><i class="fas fa-tools"></i></div>
+                    <div class="script-card-title">
+                        <a href="#post-2" onclick="event.stopPropagation()">从零搭建个人站点</a>
+                        <i class="fas fa-chevron-right script-card-arrow"></i>
+                    </div>
+                    <div class="script-card-desc">纯静态 HTML/CSS/JS 搭建个人站点，部署到 GitHub Pages 的完整过程。</div>
+                    <div class="script-card-meta">
+                        <span class="script-card-date"><i class="far fa-calendar-alt"></i>2026-08-02</span>
+                        <span class="script-card-tag">前端</span>
+                    </div>
+                </div>
+
+                <div class="script-card" onclick="location.href='#post-3'">
+                    <div class="script-card-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div class="script-card-title">
+                        <a href="#post-3" onclick="event.stopPropagation()">我的开源工具心得</a>
+                        <i class="fas fa-chevron-right script-card-arrow"></i>
+                    </div>
+                    <div class="script-card-desc">做开源的过程中学到的：命名、文档、issue 反馈与版本管理。</div>
+                    <div class="script-card-meta">
+                        <span class="script-card-date"><i class="far fa-calendar-alt"></i>2026-08-03</span>
+                        <span class="script-card-tag">开源</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div id="post-1" class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-icon-wrap">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <span class="accordion-title">我的第一篇文章</span>
+                        <span class="script-card-date"><i class="far fa-calendar-alt"></i>2026-08-01</span>
+                        <i class="fas fa-chevron-down accordion-arrow"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>欢迎来到我的个人站点。建立这个博客的初衷很简单：把零散的知识整理成体系，把踩过的坑记录下来，也把成长的过程留个见证。</p>
+                            <p>这里会持续更新技术文章、项目笔记和一些日常思考。希望这些内容对你也有帮助。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="post-2" class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-icon-wrap">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <span class="accordion-title">从零搭建个人站点</span>
+                        <span class="script-card-date"><i class="far fa-calendar-alt"></i>2026-08-02</span>
+                        <i class="fas fa-chevron-down accordion-arrow"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>本站点采用纯静态 HTML/CSS/JS 构建，不使用任何构建工具，内容直接以文件方式维护。</p>
+                            <h4>实现要点</h4>
+                            <ul>
+                                <li>单页结构，包含首页、博客、作品、关于我四个模块</li>
+                                <li>玻璃拟态卡片、浮动光斑背景与流彩渐变标题</li>
+                                <li>通过 Git 提交内容文件，GitHub Pages 自动部署</li>
+                            </ul>
+                            <h4>部署方式</h4>
+                            <ul>
+                                <li>代码推送到仓库 main 分支</li>
+                                <li>GitHub Pages 自动构建并托管</li>
+                                <li>访问地址：https://xh2580.github.io</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="post-3" class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <div class="accordion-icon-wrap">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <span class="accordion-title">我的开源工具心得</span>
+                        <span class="script-card-date"><i class="far fa-calendar-alt"></i>2026-08-03</span>
+                        <i class="fas fa-chevron-down accordion-arrow"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            <p>参与和维护开源项目的这段时间，我总结了几条实用经验。</p>
+                            <h4>几条心得</h4>
+                            <ul>
+                                <li>清晰的 README 是最好的说明书，第一眼决定留存</li>
+                                <li>命名要具体，避免含糊其辞</li>
+                                <li>认真对待每一个 issue，这是社区信任的来源</li>
+                                <li>版本管理用语义化版本，破坏性变更要提前说明</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div id="projects" class="section-card">
+            <h2 class="section-title">
+                <i class="fas fa-box-open"></i>
+                作品展示
+            </h2>
+
+            <div class="script-scroll">
+                <div class="script-card" onclick="window.open('https://github.com/xh2580', '_blank')">
+                    <div class="script-card-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="script-card-title">
+                        <a href="https://github.com/xh2580" target="_blank" onclick="event.stopPropagation()">个人博客与作品集</a>
+                        <i class="fas fa-external-link-alt script-card-arrow"></i>
+                    </div>
+                    <div class="script-card-desc">你现在看到的这个站点，纯静态单页实现，GitHub Pages 免费托管。</div>
+                    <div class="script-card-meta">
+                        <span class="script-card-tag">HTML/CSS/JS</span>
+                    </div>
+                </div>
+
+                <div class="script-card" onclick="window.open('https://github.com/xh2580', '_blank')">
+                    <div class="script-card-icon"><i class="fas fa-terminal"></i></div>
+                    <div class="script-card-title">
+                        <a href="https://github.com/xh2580" target="_blank" onclick="event.stopPropagation()">自动化脚本工具</a>
+                        <i class="fas fa-external-link-alt script-card-arrow"></i>
+                    </div>
+                    <div class="script-card-desc">日常开发中沉淀的一批自动化脚本，覆盖环境配置、批量处理与效率工具。</div>
+                    <div class="script-card-meta">
+                        <span class="script-card-tag">Shell</span>
+                        <span class="script-card-tag">Python</span>
+                    </div>
+                </div>
+
+                <div class="script-card" onclick="window.open('https://github.com/xh2580', '_blank')">
+                    <div class="script-card-icon"><i class="fas fa-code"></i></div>
+                    <div class="script-card-title">
+                        <a href="https://github.com/xh2580" target="_blank" onclick="event.stopPropagation()">Web 开发实践</a>
+                        <i class="fas fa-external-link-alt script-card-arrow"></i>
+                    </div>
+                    <div class="script-card-desc">前端与后端结合的实践项目，探索工程化与最佳实践。</div>
+                    <div class="script-card-meta">
+                        <span class="script-card-tag">JavaScript</span>
+                        <span class="script-card-tag">Node.js</span>
+                    </div>
+                </div>
+            </div>
+
+            <p style="color: #64748b; font-size: 13px; margin-top: 0.5rem;">
+                <i class="fas fa-plus-circle"></i> 更多项目正在整理中，欢迎前往
+                <a href="https://github.com/xh2580" target="_blank" style="color: #6366f1; text-decoration: none; font-weight: 600;">GitHub</a>
+                查看。
+            </p>
+        </div>
+
+        <div class="footer">
+            Made with <i class="fas fa-fire" style="color: #f97316;"></i> and <i class="fas fa-heart" style="color: #ec4899;"></i> by
+            <a href="https://github.com/xh2580" target="_blank">xh2580</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            const content = item.querySelector('.accordion-content');
+            const body = item.querySelector('.accordion-body');
+
+            if (item.classList.contains('open')) {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                content.offsetHeight;
+                content.style.maxHeight = '0px';
+                content.addEventListener('transitionend', function handler() {
+                    item.classList.remove('open');
+                    content.style.maxHeight = '';
+                    content.removeEventListener('transitionend', handler);
+                });
+            } else {
+                item.classList.add('open');
+                const height = body.scrollHeight + 40;
+                content.style.maxHeight = height + 'px';
+                content.addEventListener('transitionend', function handler() {
+                    content.style.maxHeight = 'none';
+                    content.removeEventListener('transitionend', handler);
+                });
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            if (window.location.hash) {
+                const target = document.querySelector(window.location.hash + '.accordion-item');
+                if (target && !target.classList.contains('open')) {
+                    toggleAccordion(target.querySelector('.accordion-header'));
+                }
+            }
+        });
+
+        const colors = ['#f06292', '#ba68c8', '#64b5f6', '#4fc3f7', '#4dd0e1', '#81c784', '#aed581', '#ffb74d', '#ff8a65', '#e57373'];
+        const symbols = ['✦', '✧', '⋆', '✶', '·', '✷', '❋', '✿', '❄', '❅', '❆', '✻', '✼', '❉', '★', '☆'];
+
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('span');
+            sparkle.className = 'sparkle';
+            const symbol = symbols[Math.floor(Math.random() * symbols.length)];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            sparkle.textContent = symbol;
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            sparkle.style.color = color;
+            sparkle.style.fontSize = (10 + Math.random() * 18) + 'px';
+            const angle = Math.random() * Math.PI * 2;
+            const distance = 40 + Math.random() * 80;
+            const dx = Math.cos(angle) * distance;
+            const dy = Math.sin(angle) * distance;
+            sparkle.style.setProperty('--dx', dx + 'px');
+            sparkle.style.setProperty('--dy', dy + 'px');
+            document.body.appendChild(sparkle);
+            sparkle.addEventListener('animationend', () => sparkle.remove());
+        }
+
+        function burstSparkles(x, y, count) {
+            for (let i = 0; i < count; i++) createSparkle(x, y);
+        }
+
+        window.addEventListener('click', e => burstSparkles(e.clientX, e.clientY, 24));
+
+        let isMouseDown = false;
+        let lastMoveTime = 0;
+        window.addEventListener('mousedown', () => isMouseDown = true);
+        window.addEventListener('mouseup', () => isMouseDown = false);
+        window.addEventListener('mouseleave', () => isMouseDown = false);
+        window.addEventListener('mousemove', function(e) {
+            if (!isMouseDown) return;
+            const now = Date.now();
+            if (now - lastMoveTime < 50) return;
+            lastMoveTime = now;
+            burstSparkles(e.clientX, e.clientY, 5);
+        });
+
+        window.addEventListener('touchmove', function(e) {
+            const now = Date.now();
+            if (now - lastMoveTime < 60) return;
+            lastMoveTime = now;
+            const touch = e.touches[0];
+            if (touch) burstSparkles(touch.clientX, touch.clientY, 5);
+        }, { passive: true });
+    </script>
+</body>
+</html>
